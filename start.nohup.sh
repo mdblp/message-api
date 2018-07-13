@@ -3,11 +3,11 @@
 . "${NVM_DIR}/nvm.sh"
 . version.sh
 
-service=message_api
+service=${1:-'message_api'}
 
 nvm ls "${START_NODE_VERSION}" > /dev/null || { echo "ERROR: Node version ${START_NODE_VERSION} not installed"; exit 1; }
 nvm use --delete-prefix "${START_NODE_VERSION}"
 
 . config/env.sh
 
-forever -o ../server.log -e ../error.log -l ../forever.$service.log --uid $service start lib/index.js
+nohup node lib/index.js > ../$service.log 2> ../$service.error.log <&- &
