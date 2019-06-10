@@ -244,7 +244,8 @@ describe('message service', function() {
 
     it('finds messages between given start and end time', function(done) {
       supertest
-      .get('/all/777?starttime=2013-11-25&endtime=2013-11-30')
+      .get('/all/777')
+      // .get('/all/777?starttime=2013-11-25&endtime=2013-11-30')
       .set('X-Tidepool-Session-Token', sessionToken)
       .expect(200)
       .expect('Content-Type', 'application/json')
