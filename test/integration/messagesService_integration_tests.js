@@ -118,18 +118,17 @@ describe('message service', function() {
     testDbInstance.messages.remove();
 
     for (var index = 0; index < noteAndComments.length; ++index) {
-
       if(index === 0){
         testDbInstance.messages.save(noteAndComments[index]);
+        console.log('Saved ' + index);
       }else{
         noteAndComments[index].parentmessage = fakeRootId;
         testDbInstance.messages.save(noteAndComments[index]);
+        console.log('Saved ' + index);
       }
-      if (index === (noteAndComments.length-1)){
+      }
         console.log('data loaded, now starting service');
         messageService.start(done);
-      }
-    }
   });
 
   after(function () {
@@ -252,6 +251,7 @@ describe('message service', function() {
       .end(function(err, res) {
         if (err) return done(err);
         expect(res.body).to.have.property('messages').and.be.instanceof(Array);
+        console.log(res.body.messages);
         expect(res.body.messages.length).to.equal(3);
 
         res.body.messages.forEach(function(message){
