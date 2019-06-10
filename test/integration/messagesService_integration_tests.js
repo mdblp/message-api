@@ -242,10 +242,28 @@ describe('message service', function() {
       });
     });
 
-    it('finds messages between given start and end time', function(done) {
+    it('finds all messages', function(done) {
       supertest
       .get('/all/777')
-      // .get('/all/777?starttime=2013-11-25&endtime=2013-11-30')
+      .set('X-Tidepool-Session-Token', sessionToken)
+      .expect(200)
+      .expect('Content-Type', 'application/json')
+      .end(function(err, res) {
+        if (err) return done(err);
+        expect(res.body).to.have.property('messages').and.be.instanceof(Array);
+        console.log(res.body.messages);
+        expect(res.body.messages.length).to.equal(4);
+
+        res.body.messages.forEach(function(message){
+          testMessageContent(message);
+        });
+        done();
+      });
+    });
+
+    it('finds messages between given start and end time', function(done) {
+      supertest
+      .get('/all/777?starttime=2013-11-25&endtime=2013-11-30')
       .set('X-Tidepool-Session-Token', sessionToken)
       .expect(200)
       .expect('Content-Type', 'application/json')
