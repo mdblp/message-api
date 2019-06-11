@@ -48,5 +48,6 @@ before_script:
   - sleep 15
 
 script:
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
   - npm test
   - ./artifact.sh
