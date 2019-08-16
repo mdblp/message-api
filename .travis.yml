@@ -2,18 +2,14 @@ sudo: false
 
 language: node_js
 
+dist: bionic
+
 node_js:
-  - 6.10.2
+  - 10.15.3
+  - node
 
 install:
   - npm install
-
-addons:
-  apt:
-    sources:
-      - mongodb-3.2-trusty
-    packages:
-      - mongodb-org-server
 
 deploy:
   # Control deployment by setting a value for `on`. Setting the `branch`
@@ -51,3 +47,7 @@ script:
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
   - npm test
   - ./artifact.sh
+
+matrix:
+  allow_failures:
+    - node_js: node

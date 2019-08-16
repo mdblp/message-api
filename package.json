@@ -1,6 +1,6 @@
 {
   "name": "message-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tidepool Message API.",
   "main": "lib/index.js",
   "directories": {
@@ -10,7 +10,7 @@
     "start": "node lib/index.js",
     "test": "grunt test"
   },
-  "repository": "https://github.com/tidepool-org/message-api.git",
+  "repository": "https://github.com/mdblp/message-api",
   "author": {
     "name": "Jamie Bate"
   },
@@ -26,9 +26,9 @@
     "request": "2.88.0",
     "restify": "8.3.2",
     "sundial": "1.6.0",
-    "tidepool-gatekeeper": "0.2.3",
+    "tidepool-gatekeeper": "mdblp/gatekeeper#dblp.0.1.0",
     "tidepool-seagull-client": "0.1.6",
-    "user-api-client": "0.4.2"
+    "user-api-client": "0.5.0"
   },
   "devDependencies": {
     "async": "3.0.1",
@@ -38,7 +38,7 @@
     "grunt-contrib-uglify": "4.0.1",
     "grunt-mocha-test": "0.13.3",
     "grunt-shell-spawn": "0.4.0",
-    "mocha": "6.1.4",
+    "mocha": "6.2.0",
     "salinity": "0.0.8",
     "supertest": "4.0.2"
   }

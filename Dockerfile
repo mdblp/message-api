@@ -1,4 +1,4 @@
-FROM node:6.10.2-alpine
+FROM node:10.15-alpine
 
 RUN apk --no-cache update && \
     apk --no-cache upgrade
@@ -8,8 +8,8 @@ WORKDIR /app
 COPY package.json .
 
 RUN apk add --no-cache --virtual .build-dependencies git && \
-    yarn install && \
-    yarn cache clean && \
+    npm install && \
+    npm cache clean --force && \
     apk del .build-dependencies
 
 USER node
