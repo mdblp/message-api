@@ -28,7 +28,7 @@
     "sundial": "1.6.0",
     "tidepool-gatekeeper": "mdblp/gatekeeper#dblp.0.1.0",
     "tidepool-seagull-client": "0.1.6",
-    "user-api-client": "0.5.0"
+    "user-api-client": "mdblp/user-api-client#feature/pt583-v0.5.0"
   },
   "devDependencies": {
     "async": "3.0.1",
