@@ -26,8 +26,8 @@
     "request": "2.88.0",
     "restify": "8.3.2",
     "sundial": "1.6.0",
-    "tidepool-gatekeeper": "mdblp/gatekeeper#dblp.0.1.0",
-    "tidepool-seagull-client": "0.1.6",
+    "tidepool-gatekeeper": "0.2.4",
+    "tidepool-seagull-client": "0.1.8",
     "user-api-client": "mdblp/user-api-client#feature/pt583-v0.5.0"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN apk add --no-cache --virtual .build-dependencies git && \
+RUN apk add --no-cache --virtual .build-dependencies git python make && \
     npm install && \
     npm cache clean --force && \
     apk del .build-dependencies
@@ -15,5 +15,4 @@ RUN apk add --no-cache --virtual .build-dependencies git && \
 USER node
 
 COPY . .
-
-CMD ["npm", "start"]
+CMD ["node", "lib/index.js"]
