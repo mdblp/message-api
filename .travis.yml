@@ -64,4 +64,5 @@ before_script:
 script:
   - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
   - npm test
+  - npm audit --registry=https://registry.npmjs.org --production --audit-level=moderate
   - ./artifact.sh
