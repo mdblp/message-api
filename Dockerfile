@@ -1,5 +1,5 @@
 ### Stage 0 - Base image
-FROM node:10-alpine as base
+FROM node:12-alpine as base
 ARG npm_token
 ENV NEXUS_TOKEN=$npm_token
 WORKDIR /app
