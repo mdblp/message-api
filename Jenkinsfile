@@ -37,6 +37,7 @@ pipeline {
                 script {
                     docker.image("docker.ci.diabeloop.eu/node-build:12").inside("--net=messageapitest${RUN_ID}") {
                         withCredentials([string(credentialsId: 'nexus-token', variable: 'NEXUS_TOKEN')]) {
+                            sleep 5
                             sh "MONGO_CONN_STRING='mongodb://mongo4messageapitest${RUN_ID}:27017/messageapi_test' npm run test-ci"
                         }
                     }
